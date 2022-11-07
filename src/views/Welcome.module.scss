@@ -1,0 +1,24 @@
+.wrapper {
+  // * {
+  //   outline: 1px solid red;
+  // }
+
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--welcome-bg);
+  > header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 66px;
+    padding-bottom: 32px;
+    color: var(--welcome-header-color);
+  }
+  > main {
+    flex-grow: 1;
+    display: flex;
+    padding-bottom: 80px;
+  }
+}
