@@ -3,6 +3,7 @@ import { App } from "./App";
 import { createRouter } from "vue-router";
 import { routes } from "./config/routes";
 import { history } from "./shared/history";
+import "@svgstore";
 
 //路由器 (默认hash模式)
 const router = createRouter({ history, routes });
