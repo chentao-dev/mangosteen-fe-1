@@ -1,16 +1,37 @@
 import { defineComponent, ref, Transition, VNode, watchEffect } from "vue";
-import { RouteLocationNormalizedLoaded, RouterView } from "vue-router";
+import { RouteLocationNormalizedLoaded, RouterView, useRoute, useRouter } from "vue-router";
 import { useSwipe } from "../hooks/useSwipe";
+import { throttle } from "../shared/throttle";
 import s from "./Welcome.module.scss";
+
+//表驱动
+const pushMap: Record<string, string> = {
+  Welcome1: "/welcome/2",
+  Welcome2: "/welcome/3",
+  Welcome3: "/welcome/4",
+  Welcome4: "/start",
+};
 
 export const Welcome = defineComponent({
   setup: () => {
-    const main = ref<HTMLElement>();
-    const { swiping, direction } = useSwipe(main);
-    //只要任何一个变量改变, 就触发
+    //获取元素
+    const div = ref<HTMLElement>();
+    //监听滑动事件(可覆写6种钩子)
+    const { swiping, direction } = useSwipe(div, { beforeStart: (e) => e.preventDefault() });
+    //路由表
+    const route = useRoute();
+    //路由器
+    const router = useRouter();
+    //对函数节流, 0.5秒后才可再调用函数, 路由跳转
+    const replace = throttle(() => {
+      const routeName = route.name?.toString();
+      routeName && router.replace(pushMap[routeName]);
+    }, 500);
+    //触发滑动事件, 参数改变, 触发watch
     watchEffect(() => {
-      //swiping是否滑动, direction滑动方向
-      console.log(direction.value);
+      if (swiping.value && direction.value === "left") {
+        replace();
+      }
     });
 
     return () => (
@@ -22,7 +43,7 @@ export const Welcome = defineComponent({
           <h1>山竹记账</h1>
         </header>
 
-        <main ref={main}>
+        <main ref={div}>
           <RouterView name="m">
             {({ Component: X, route: R }: { Component: VNode; route: RouteLocationNormalizedLoaded }) => (
               <Transition enterActiveClass={s.fade_enter_active} leaveActiveClass={s.fade_leave_active} enterFromClass={s.fade_enter_from} leaveToClass={s.fade_leave_to}>

@@ -26,13 +26,13 @@
 /* 淡入/淡出 */
 .fade_enter_active,
 .fade_leave_active {
-  transition: all 0.5s;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   margin-bottom: 80px;
+  transition: all var(--welcome-transition-time) ease-out;
 }
 
 /* 淡入前 */
