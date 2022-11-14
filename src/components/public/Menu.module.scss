@@ -1,0 +1,43 @@
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 24px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.wrapper {
+  * {
+    // outline: 1px solid red;
+  }
+  width: 65%;
+  height: 100%;
+  position: fixed;
+  top: 24px;
+  left: 0;
+  background: var(--welcome-card-bg);
+  section {
+    padding-left: 16px;
+    h2 {
+      padding-top: 32px;
+      padding-bottom: 12px;
+      color: var(--button-text);
+    }
+    p {
+      padding-bottom: 44px;
+      color: #cea1ff;
+    }
+    background: var(--button-bg);
+  }
+  nav {
+    li > * {
+      margin: 16px 16px;
+    }
+    svg {
+      width: 34px;
+      height: 34px;
+      vertical-align: middle;
+    }
+  }
+}

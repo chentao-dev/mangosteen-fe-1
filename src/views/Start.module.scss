@@ -1,3 +1,17 @@
-.button {
-  margin: 0 16px;
+.wrapper {
+  // * {
+  //   border: 1px solid red;
+  // }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 160px 0;
+    svg {
+      width: 128px;
+    }
+  }
+  .button {
+    margin: 0 16px;
+  }
 }
