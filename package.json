@@ -8,7 +8,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "animate.css": "4.1.1",
     "sass": "1.56.0",
     "svgo": "3.0.1",
     "svgstore": "3.0.1",

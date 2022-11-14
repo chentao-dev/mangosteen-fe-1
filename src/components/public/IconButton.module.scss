@@ -1,0 +1,18 @@
+.wrapper {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  background: var(--button-bg);
+
+  .icon {
+    width: 32px;
+    height: 32px;
+    fill: var(--button-text);
+  }
+}

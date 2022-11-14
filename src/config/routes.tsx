@@ -7,6 +7,7 @@ import { OneAction } from "../components/welcome/OneAction";
 import { TwoAction } from "../components/welcome/TwoAction";
 import { ThreeAction } from "../components/welcome/ThreeAction";
 import { FourAction } from "../components/welcome/FourAction";
+import { Start } from "../views/Start";
 
 //路由表
 export const routes = [
@@ -22,4 +23,5 @@ export const routes = [
       { path: "4", name: "Welcome4", components: { m: Four, f: FourAction } },
     ],
   },
+  { path: "/start", component: Start },
 ];

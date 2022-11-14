@@ -3,7 +3,6 @@ lockfileVersion: 5.4
 specifiers:
   '@vitejs/plugin-vue': 2.3.3
   '@vitejs/plugin-vue-jsx': 2.1.0
-  animate.css: 4.1.1
   sass: 1.56.0
   svgo: 3.0.1
   svgstore: 3.0.1
@@ -14,7 +13,6 @@ specifiers:
   vue-tsc: ^0.29.8
 
 dependencies:
-  animate.css: 4.1.1
   sass: 1.56.0
   svgo: 3.0.1
   svgstore: 3.0.1
@@ -603,10 +601,6 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
-
-  /animate.css/4.1.1:
-    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
-    dev: false
 
   /ansi-styles/3.2.1:
     resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==}

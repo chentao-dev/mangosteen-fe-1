@@ -1,10 +1,9 @@
+import { Icon } from "../public/Icon";
 import s from "./WelcomeComponents.module.scss";
 
 export const Two = () => (
   <div class={s.card}>
-    <svg>
-      <use xlinkHref="#clock"></use>
-    </svg>
+    <Icon name="#clock"></Icon>
     <h2>
       每日提醒 <br /> 不会遗漏每一笔账单
     </h2>
