@@ -1,12 +1,13 @@
 import { defineComponent, ref } from "vue";
+import { RouterLink } from "vue-router";
 import { Button } from "../components/public/Button";
 import { Icon } from "../components/public/Icon";
 import { IconButton } from "../components/public/IconButton";
 import { Menu } from "../components/public/Menu";
 import { Navbar } from "../components/public/Navbar";
-import s from "./Start.module.scss";
+import s from "./StartPage.module.scss";
 
-export const Start = defineComponent({
+export const StartPage = defineComponent({
   setup() {
     let show = ref(false);
 
@@ -25,8 +26,12 @@ export const Start = defineComponent({
         <div class={s.center}>
           <Icon name="#pig"></Icon>
         </div>
-        <Button class={s.button}>开始记账</Button>
-        <IconButton name="#add"></IconButton>
+        <RouterLink to="/item/create">
+          <Button class={s.button}>开始记账</Button>
+        </RouterLink>
+        <RouterLink to="/item/create">
+          <IconButton name="#add"></IconButton>
+        </RouterLink>
         {show.value && <Menu onClose={() => (show.value = false)}></Menu>}
       </div>
     );

@@ -2,7 +2,7 @@ import { defineComponent, ref, Transition, VNode, watchEffect } from "vue";
 import { RouteLocationNormalizedLoaded, RouterView, useRoute, useRouter } from "vue-router";
 import { useSwipe } from "../hooks/useSwipe";
 import { throttle } from "../shared/throttle";
-import s from "./Welcome.module.scss";
+import s from "./WelcomePage.module.scss";
 
 //表驱动
 const pushMap: Record<string, string> = {
@@ -12,7 +12,7 @@ const pushMap: Record<string, string> = {
   Welcome4: "/start",
 };
 
-export const Welcome = defineComponent({
+export const WelcomePage = defineComponent({
   setup: () => {
     //获取元素
     const div = ref<HTMLElement>();

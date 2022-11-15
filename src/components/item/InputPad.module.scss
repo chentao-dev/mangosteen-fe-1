@@ -1,0 +1,56 @@
+.wrapper {
+  * {
+    // border: 1px solid red;
+  }
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  .dateAndNum {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-top: 1px solid #ddd;
+    .date {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        fill: var(--button-bg);
+      }
+      span {
+        font-family: monospace;
+        font-size: 12px;
+        color: #999;
+      }
+    }
+    .num {
+      font-family: monospace;
+      font-size: 20px;
+      color: #53a867;
+    }
+  }
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #ddd;
+    > button {
+      border: none;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      width: 25%;
+      height: 56px;
+      background: transparent;
+    }
+    > :nth-child(4n) {
+      border-right: none;
+    }
+    > :last-child {
+      background: var(--button-bg);
+      color: var(--button-text);
+    }
+  }
+}

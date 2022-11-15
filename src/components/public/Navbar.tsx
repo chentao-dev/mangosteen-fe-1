@@ -6,6 +6,7 @@ export const Navbar = defineComponent({
     return () => (
       <div class={s.navbar}>
         {ctx.slots.icon?.()} {ctx.slots.title?.()}
+        {ctx.slots.tabs?.()}
       </div>
     );
   },
