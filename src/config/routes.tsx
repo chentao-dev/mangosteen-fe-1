@@ -13,6 +13,9 @@ import { ItemList } from "../components/item/ItemList";
 import { ItemCreate } from "../components/item/ItemCreate";
 import { ItemCreatePay } from "../components/item/itemCreatePay";
 import { itemCreateIncome } from "../components/item/itemCreateIncome";
+import { TagEdit } from "../components/tag/TagEdit";
+import { TagPage } from "../views/TagPage";
+import { TagCreate } from "../components/tag/TagCreate";
 
 //路由表
 export const routes = [
@@ -42,6 +45,14 @@ export const routes = [
           { path: "income", component: itemCreateIncome },
         ],
       },
+    ],
+  },
+  {
+    path: "/tags",
+    component: TagPage,
+    children: [
+      { path: "create", component: TagCreate },
+      { path: ":id", component: TagEdit },
     ],
   },
 ];

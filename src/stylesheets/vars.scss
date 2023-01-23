@@ -9,4 +9,8 @@
   --button-text: #fff;
   --button-font-size: 18px;
   --button-h: 48px;
+
+  // vant组件
+  --van-number-keyboard-button-text-color: var(button-text) !important;
+  --van-number-keyboard-button-background-color: var(--button-bg) !important;
 }

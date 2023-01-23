@@ -11,6 +11,7 @@
     "sass": "1.56.0",
     "svgo": "3.0.1",
     "svgstore": "3.0.1",
+    "vant": "3.4",
     "vue": "3.2.25",
     "vue-router": "4"
   },
@@ -19,6 +20,7 @@
     "@vitejs/plugin-vue-jsx": "2.1.0",
     "typescript": "4.5.4",
     "vite": "3.0.0",
+    "vite-plugin-style-import": "1.4.1",
     "vue-tsc": "^0.29.8"
   }
 }

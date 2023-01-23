@@ -1,0 +1,36 @@
+.emoji {
+  .wrapper {
+    border: 1px solid var(--button-bg);
+    border-radius: 8px;
+    margin-top: 10px;
+    nav {
+      font-size: 14px;
+      color: #999;
+      padding: 8px 4px;
+      white-space: nowrap;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      > span {
+        padding: 8px;
+      }
+    }
+    ol {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      height: calc(32px * 11);
+      line-height: 32px;
+      padding: 0 4px;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      > li {
+        width: 10%;
+        text-align: center;
+      }
+    }
+  }
+}

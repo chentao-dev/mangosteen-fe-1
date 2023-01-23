@@ -1,41 +1,65 @@
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import { time } from "../../shared/time";
 import { Icon } from "../public/Icon";
 import s from "./InputPad.module.scss";
+import { Popup, DatetimePicker, NumberKeyboard } from "vant";
 
 export const InputPad = defineComponent({
   setup(props, ctx) {
-    const buttons = [
-      { text: "1", onClick: () => {} },
-      { text: "2", onClick: () => {} },
-      { text: "3", onClick: () => {} },
-      { text: "删除", onClick: () => {} },
-      { text: "4", onClick: () => {} },
-      { text: "5", onClick: () => {} },
-      { text: "6", onClick: () => {} },
-      { text: "+", onClick: () => {} },
-      { text: "7", onClick: () => {} },
-      { text: "8", onClick: () => {} },
-      { text: "9", onClick: () => {} },
-      { text: "-", onClick: () => {} },
-      { text: ".", onClick: () => {} },
-      { text: "0", onClick: () => {} },
-      { text: "清空", onClick: () => {} },
-      { text: "提交", onClick: () => {} },
-    ];
+    // 日期相关
+    const show = ref(false);
+    const date = ref(new Date());
+    function changeShow() {
+      show.value = !show.value;
+    }
+    function setDate(d: Date) {
+      date.value = d;
+      changeShow();
+    }
+    // 数字键盘相关
+    const num = ref("0");
+    function appendText(n: number | string) {
+      n = n.toString();
+      if (num.value.length >= 13) {
+        return;
+      }
+      if (num.value.indexOf(".") >= 0) {
+        if (n === ".") return;
+        if (num.value.split(".")[1].length >= 2) return;
+      }
+      if (num.value === "0") {
+        if (n === "0") return;
+        if (n !== ".") {
+          num.value = n;
+          return;
+        }
+      }
+      num.value += n;
+    }
+    function deleteText() {
+      num.value = "0";
+    }
+    function x() {
+      console.log("提交");
+    }
+
     return () => (
       <div class={s.wrapper}>
         <div class={s.dateAndNum}>
           <span class={s.date}>
             <Icon name="#date"></Icon>
-            <span>2022-01-01</span>
+            <span onClick={changeShow}>{time(date.value).format()}</span>
           </span>
-          <span class={s.num}>10009.12</span>
+          <span class={s.num}>{num.value}</span>
         </div>
-        <div class={s.buttons}>
-          {buttons.map((v) => (
-            <button onClick={v.onClick}>{v.text}</button>
-          ))}
-        </div>
+
+        {/* 数字键盘 */}
+        <NumberKeyboard style="position:static" show={true} theme="custom" extra-key="." close-button-text="提交" onInput={appendText} onDelete={deleteText} onBlur={x}></NumberKeyboard>
+
+        {/* 日期选择器, onConfirm确认触发, onCancel取消触发 */}
+        <Popup position="bottom" v-model:show={show.value}>
+          <DatetimePicker type="date" title="选择年月日" value={date.value} onCancel={changeShow} onConfirm={setDate}></DatetimePicker>
+        </Popup>
       </div>
     );
   },
